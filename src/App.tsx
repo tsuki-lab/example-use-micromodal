@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="App">
       <h1>Micromodal.js Use CustomHooks</h1>
-      <a href="https://micromodal.vercel.app/" target="_blank">micromodal.js</a>
+      <p><a href="https://micromodal.vercel.app/" target="_blank">micromodal.js</a></p>
+      <p><a href="https://github.com/tsuki-lab/example-use-micromodal">GitHub - Repository</a></p>
       <p><button onClick={open}>open</button></p>
       <Modal>
         <div className="">
