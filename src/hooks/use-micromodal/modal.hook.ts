@@ -1,25 +1,18 @@
 import client from 'micromodal'
-import { useEffect, useCallback, useState } from 'react'
+import { useCallback } from 'react'
 
 export const useHook = (id: string) => {
-  const [microModal, setMicroModal] = useState<typeof client | null>(null)
-
-  useEffect(() => {
-    setMicroModal(client)
-    client.init({
+  const open = useCallback(() => {
+    client.show(id, {
+      // micromodal options
+      // https://micromodal.vercel.app/#configuration
       disableScroll: true
     })
-  }, [])
-
-  const open = useCallback(() => {
-    if (!microModal) return
-    microModal.show(id)
-  }, [id, microModal])
+  }, [id])
 
   const close = useCallback(() => {
-    if (!microModal) return
-    microModal.close(id)
-  }, [id, microModal])
+    client.close(id)
+  }, [id])
 
   return { open, close }
 }
